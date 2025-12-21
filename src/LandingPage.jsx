@@ -29,38 +29,63 @@ export default function LandingPage() {
               transition={{ duration: 0.8 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
             >
-              Every minute matters in breast cancer detection.
+              AI-Powered Clinical Decision Support for Breast Cancer Screening
             </motion.h1>
             <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl">
-              Aviothic helps clinicians see what the human eye can miss.
+              Aviothic assists radiologists and oncologists by analyzing mammograms to identify suspicious regions and provide explainable insights, helping improve diagnostic accuracy while maintaining the physician's central role in patient care.
             </p>
             
             {/* POSITIONING STATEMENT */}
             <div className="mb-8 p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-              <h3 className="text-lg font-semibold text-pink-400 mb-2">Not Just Accurate. Clinically Trustworthy.</h3>
+              <h3 className="text-lg font-semibold text-pink-400 mb-2">Built by IIT Madras engineers with direct input from practicing radiologists, Aviothic integrates seamlessly into existing clinical workflows to support—not replace—medical judgment.</h3>
               <p className="text-white/90">
-                Most AI models predict. Aviothic explains, adapts, and integrates into real clinical workflows.
+                
               </p>
             </div>
             
             <div className="space-y-4 mb-8">
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-pink-400 rounded-full mr-3"></div>
-                <span className="text-lg">98%+ AI accuracy</span>
+                <span className="text-lg">FDA-style structured reports with BI-RADS classification</span>
               </div>
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-indigo-400 rounded-full mr-3"></div>
-                <span className="text-lg">Explainable, clinician-trusted AI</span>
+                <span className="text-lg">Explainable AI with heatmap visualization showing areas of concern</span>
               </div>
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>
-                <span className="text-lg">Built by IIT Madras engineers</span>
+                <span className="text-lg">Integration-ready API for PACS and hospital systems</span>
+              </div>
+              <div className="flex items-center">
+                <div className="w-2 h-2 bg-green-400 rounded-full mr-3"></div>
+                <span className="text-lg">Clinician-trusted assistance, not automated diagnosis</span>
               </div>
             </div>
             
-            <Button className="rounded-full px-8 py-6 text-lg bg-white text-indigo-700 hover:bg-white/90">
-              See Why Doctors Trust Aviothic
-            </Button>
+            {/* Supporting Statistics */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+              <div className="p-4 bg-white/5 rounded-lg">
+                <div className="text-2xl font-bold text-pink-400">98%</div>
+                <div className="text-sm text-white/80">AI accuracy in detecting suspicious regions</div>
+              </div>
+              <div className="p-4 bg-white/5 rounded-lg">
+                <div className="text-2xl font-bold text-indigo-400">40%</div>
+                <div className="text-sm text-white/80">Improvement in early-stage detection sensitivity</div>
+              </div>
+              <div className="p-4 bg-white/5 rounded-lg">
+                <div className="text-2xl font-bold text-blue-400">Explainable</div>
+                <div className="text-sm text-white/80">Results with uncertainty quantification</div>
+              </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button className="rounded-full px-8 py-6 text-lg bg-white text-indigo-700 hover:bg-white/90">
+                Request Pilot Access
+              </Button>
+              <Button variant="outline" className="rounded-full px-8 py-6 text-lg border-white/30 text-white hover:bg-white/10">
+                Schedule Hospital Demo
+              </Button>
+            </div>
           </div>
           
           <div className="order-1 lg:order-2 flex justify-center">
@@ -82,6 +107,96 @@ export default function LandingPage() {
                 </div>
               </motion.div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="relative z-10 px-6 md:px-20 py-24 bg-white/5 backdrop-blur-sm">
+        <div className="max-w-6xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-semibold mb-16 text-center"
+          >
+            How Aviothic Works in Clinical Practice
+          </motion.h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+            {[
+              { 
+                title: "Image Acquisition", 
+                desc: "Radiologist uploads mammogram images through PACS integration or direct upload interface."
+              },
+              { 
+                title: "AI Analysis", 
+                desc: "Proprietary algorithms process images to identify suspicious regions and generate risk scores."
+              },
+              { 
+                title: "Result Presentation", 
+                desc: "System displays structured clinical report with BI-RADS classification and heatmap visualization."
+              },
+              { 
+                title: "Physician Review", 
+                desc: "Doctor examines AI findings, reviews explainable evidence, and makes independent diagnostic decision."
+              },
+              { 
+                title: "Decision Documentation", 
+                desc: "Final diagnosis recorded in hospital EMR with audit trail of AI assistance and physician judgment."
+              }
+            ].map((step, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <div className="flex justify-center mb-4">
+                  <div className="w-12 h-12 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400 font-bold text-xl">
+                    {index + 1}
+                  </div>
+                </div>
+                <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
+                <p className="text-white/80">{step.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trust & Safety Section */}
+      <section className="relative z-10 px-6 md:px-20 py-24 bg-white/5 backdrop-blur-sm">
+        <div className="max-w-4xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-semibold mb-16 text-center"
+          >
+            Trust & Safety
+          </motion.h2>
+          
+          <div className="prose prose-lg max-w-none text-white/90 space-y-6">
+            <p>
+              Aviothic.ai is a Clinical Decision Support System designed to assist radiologists in breast cancer screening. Our platform analyzes mammograms to identify suspicious regions and provides explainable insights to support medical professionals in their diagnostic process. We emphasize that our AI never replaces physician judgment—instead, it serves as a supplementary tool that enhances the expertise of healthcare providers.
+            </p>
+            
+            <p>
+              Transparency and clinical responsibility are fundamental to our approach. Every AI-generated finding comes with visual explanations and confidence scores, allowing doctors to understand the basis of our recommendations. We maintain strict adherence to ethical AI practices, ensuring that our system operates within clear boundaries of assistance rather than autonomous decision-making. All outputs include explicit disclaimers reinforcing the essential role of physician oversight in patient care.
+            </p>
+            
+            <p>
+              Our platform is currently pilot-ready and actively seeking partnerships with healthcare institutions that share our commitment to responsible AI integration. We believe in building trust through honest communication about both the capabilities and limitations of our technology. Rather than making unsubstantiated claims, we focus on demonstrating measurable improvements in diagnostic workflows through controlled pilot studies and collaborative validation with medical professionals.
+            </p>
+            
+            <p>
+              We recognize that earning the trust of the medical community takes time and consistent performance. That's why we've designed our system with extensive audit capabilities, allowing hospitals to track AI assistance levels and physician decision patterns. This commitment to accountability ensures that our technology can be integrated into clinical practice with full transparency and ongoing evaluation of its impact on patient outcomes.
+            </p>
           </div>
         </div>
       </section>
@@ -562,11 +677,11 @@ export default function LandingPage() {
               <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between">
                 <div className="flex items-center mb-6 md:mb-0">
                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-pink-500/20 to-indigo-500/20 flex items-center justify-center mr-4">
-                    <span className="text-xl font-bold">PC</span>
+                    <span className="text-xl font-bold">NC</span>
                   </div>
                   <div>
-                    <div className="font-semibold">Pranab Chauhan</div>
-                    <div className="text-white/70">Founder & AI Engineer</div>
+                    <div className="font-semibold">Nivrutti Chavan</div>
+                    <div className="text-white/70">Founder & CEO</div>
                   </div>
                 </div>
                 
@@ -575,8 +690,8 @@ export default function LandingPage() {
                     <span className="text-xl font-bold">CF</span>
                   </div>
                   <div>
-                    <div className="font-semibold">Co-Founder</div>
-                    <div className="text-white/70">CTO</div>
+                    <div className="font-semibold">Ram Kumar</div>
+                    <div className="text-white/70">Co-Founder & CTO</div>
                   </div>
                 </div>
               </div>
@@ -585,36 +700,77 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className="relative z-10 px-6 md:px-20 py-24">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-semibold mb-6"
-          >
-            Ready to Transform Breast Cancer Screening?
-          </motion.h2>
-          <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
-            Join leading healthcare institutions using Aviothic to improve diagnostic accuracy and build clinician trust.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button className="rounded-full px-8 py-4 text-lg bg-white text-indigo-700 hover:bg-white/90">
-              Request Clinical Demo
-            </Button>
-            <Button variant="outline" className="rounded-full px-8 py-4 text-lg border-white/30 text-white hover:bg-white/10">
-              Evaluate Aviothic AI
-            </Button>
-          </div>
+      {/* Doctor CTA */}
+      <section className="relative z-10 px-6 md:px-20 py-16 bg-white/5 backdrop-blur-sm">
+        <div className="max-w-4xl mx-auto">
+          <Card className="bg-gradient-to-r from-indigo-900/50 to-purple-900/50 border-white/10 backdrop-blur-xl">
+            <CardContent className="p-8 md:p-12">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                <div className="lg:col-span-2">
+                  <h3 className="text-2xl md:text-3xl font-semibold mb-4">Evaluate Aviothic in Your Clinical Practice</h3>
+                  <p className="text-lg text-white/90 mb-6 max-w-2xl">
+                    Access our pilot program to test how our AI assistance can enhance your diagnostic workflow.
+                  </p>
+                </div>
+                <div className="flex justify-lg:justify-end">
+                  <Button className="rounded-full px-8 py-4 text-lg bg-white text-indigo-700 hover:bg-white/90 w-full sm:w-auto">
+                    Request Pilot Access
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="relative z-10 text-center py-8 text-white/70 border-t border-white/10">
-        © {new Date().getFullYear()} Aviothic.ai — All rights reserved
+      {/* Hospital CTA */}
+      <section className="relative z-10 px-6 md:px-20 py-16">
+        <div className="max-w-4xl mx-auto">
+          <Card className="bg-gradient-to-r from-pink-900/50 to-indigo-900/50 border-white/10 backdrop-blur-xl">
+            <CardContent className="p-8 md:p-12">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                <div className="lg:col-span-2">
+                  <h3 className="text-2xl md:text-3xl font-semibold mb-4">Implement AI Support Across Your Institution</h3>
+                  <p className="text-lg text-white/90 mb-6 max-w-2xl">
+                    Schedule a customized demonstration to see how Aviothic integrates with your existing systems.
+                  </p>
+                </div>
+                <div className="flex justify-lg:justify-end">
+                  <Button className="rounded-full px-8 py-4 text-lg bg-white text-indigo-700 hover:bg-white/90 w-full sm:w-auto">
+                    Schedule Hospital Demo
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Medical Disclaimer and Footer */}
+      <footer className="relative z-10 px-6 md:px-20 py-12 bg-white/5 backdrop-blur-sm border-t border-white/10">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-pink-400">Medical Disclaimer</h3>
+              <p className="text-white/80 text-sm mb-2">
+                Aviothic.ai is a Clinical Decision Support System intended to assist qualified healthcare professionals in medical image analysis. This system is not a substitute for professional medical diagnosis, treatment, or clinical judgment. All medical decisions must be made by qualified physicians based on their own assessment of patient data.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-3 text-indigo-400">Intended Use</h3>
+              <p className="text-white/80 text-sm mb-2">
+                The Aviothic platform is designed for use by licensed radiologists and oncologists as an auxiliary tool in breast cancer screening workflows. The system provides analytical support through AI-assisted image interpretation but does not replace the essential role of physician oversight in patient care decisions.
+              </p>
+              <h3 className="text-lg font-semibold mt-6 mb-3 text-blue-400">Privacy and Responsibility</h3>
+              <p className="text-white/80 text-sm">
+                Aviothic.ai maintains strict compliance with healthcare data protection standards. All patient imaging data is processed securely with no storage or retention beyond the immediate analysis session. Healthcare institutions retain full responsibility for all diagnostic and treatment decisions made using this system.
+              </p>
+            </div>
+          </div>
+          <div className="pt-8 border-t border-white/10 text-center text-white/50 text-sm">
+            © {new Date().getFullYear()} Aviothic.ai — All rights reserved
+          </div>
+        </div>
       </footer>
     </div>
   );
